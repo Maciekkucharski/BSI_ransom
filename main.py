@@ -1,10 +1,6 @@
 from encryptors import *
 
-import tf
-# input()
-# tf_encrypt("twofish\\plain.txt", "twofish\\encoded.txt", '1337')
-# input()
-# tf_decrypt("twofish\\encoded.txt", "twofish\\plain2.txt", '1337')
+
 
 
 from encryptors import *

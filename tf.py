@@ -37,3 +37,10 @@ def tf_decrypt(in_filename, out_filename, password):
 
 tf_encrypt("twofish\\plain.txt", "twofish\\encoded.txt", '1337')
 tf_decrypt("twofish\\encoded.txt", "twofish\\plain2.txt", '1337')
+
+
+# import tf
+# input()
+# tf_encrypt("twofish\\plain.txt", "twofish\\encoded.txt", '1337')
+# input()
+# tf_decrypt("twofish\\encoded.txt", "twofish\\plain2.txt", '1337')
