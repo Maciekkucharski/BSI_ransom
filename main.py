@@ -4,8 +4,11 @@ from Crypto.Cipher import AES
 import re
 from secrets import token_bytes
 
-
 key = token_bytes(16)
+
+nonce_dict = dict()
+cipher_dict = dict()
+tag_dict = dict()
 
 
 def encrypt_AES(msg):
@@ -26,20 +29,15 @@ def decrypt_AES(nonce, ciphertext, tag):
 
 
 def encrypt_files(encryption_method):
-    nonce_dict = dict()
-    cipher_dict = dict()
-    tag_dict = dict()
     for file in glob("AES/to_encrypt/*.txt"):
-        with open(file, "r+") as f:
-            f.seek(0)
+        with open(file, "r") as f:
             nonce, cipher_text, tag = encryption_method(f.read())
-            nonce_dict = {file: nonce}
-            cipher_dict = {file: cipher_text}
-            tag_dict = {file: tag}
-            print(nonce_dict)
-    print(nonce_dict)
-    return nonce_dict, cipher_dict, tag_dict
+            nonce_dict[file] = nonce
+            cipher_dict[file] = cipher_text
+            tag_dict[file] = tag
+        with open(file, "wb") as f:
+            f.write(cipher_text)
 
 
-nonce_dict, cipher_dict, tag_dict = encrypt_files(encrypt_AES)
-# print(nonce_dict)
+encrypt_files(encrypt_AES)
+print(nonce_dict)
