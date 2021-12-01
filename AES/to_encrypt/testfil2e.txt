@@ -1,0 +1,3 @@
+test file2
+2 be encrypted
+lies here

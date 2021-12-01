@@ -1,0 +1,3 @@
+test file
+to be encrypted
+lies here
